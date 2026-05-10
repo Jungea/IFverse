@@ -1,0 +1,84 @@
+<h2>분기 그래프 편집 방식</h2>
+<p class="subtitle">세 가지 스타일 중 어떤 느낌이 좋으신가요?</p>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>캔버스형 — 자유 배치</h3>
+      <p style="margin-bottom:12px">노드를 원하는 위치에 드래그해서 배치. 공간을 마음대로 활용.</p>
+      <div style="background:#0d0d0d;border:1px solid #333;border-radius:8px;padding:16px;position:relative;height:140px;font-size:12px;">
+        <div style="position:absolute;top:20px;left:80px;background:#1a1a2e;border:1px solid #7c3aed;border-radius:6px;padding:6px 10px;color:#e2e8f0;white-space:nowrap;">프롤로그</div>
+        <div style="position:absolute;top:70px;left:20px;background:#1a1a2e;border:1px solid #4f46e5;border-radius:6px;padding:6px 10px;color:#e2e8f0;white-space:nowrap;">A루트</div>
+        <div style="position:absolute;top:55px;left:155px;background:#1a1a2e;border:1px solid #4f46e5;border-radius:6px;padding:6px 10px;color:#e2e8f0;white-space:nowrap;">B루트</div>
+        <div style="position:absolute;top:100px;left:40px;background:#1a1a2e;border:1px solid #059669;border-radius:6px;padding:6px 10px;color:#e2e8f0;white-space:nowrap;">엔딩1</div>
+        <div style="position:absolute;top:100px;left:170px;background:#1a1a2e;border:1px solid #059669;border-radius:6px;padding:6px 10px;color:#e2e8f0;white-space:nowrap;">엔딩2</div>
+        <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;">
+          <line x1="120" y1="38" x2="55" y2="70" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4"/>
+          <line x1="130" y1="38" x2="185" y2="55" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4"/>
+          <line x1="55" y1="90" x2="65" y2="100" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="4"/>
+          <line x1="190" y1="75" x2="195" y2="100" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="4"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>트리형 — 자동 정렬</h3>
+      <p style="margin-bottom:12px">위→아래로 자동 배치. 항상 깔끔하게 정돈됨. 드래그 불필요.</p>
+      <div style="background:#0d0d0d;border:1px solid #333;border-radius:8px;padding:16px;position:relative;height:140px;font-size:12px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0;height:100%;">
+          <div style="background:#1a1a2e;border:1px solid #7c3aed;border-radius:6px;padding:5px 14px;color:#e2e8f0;margin-top:4px;">프롤로그</div>
+          <div style="width:1px;height:14px;background:#555;"></div>
+          <div style="display:flex;gap:32px;align-items:flex-start;">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="background:#1a1a2e;border:1px solid #4f46e5;border-radius:6px;padding:5px 14px;color:#e2e8f0;">A루트</div>
+              <div style="width:1px;height:14px;background:#555;"></div>
+              <div style="background:#1a1a2e;border:1px solid #059669;border-radius:6px;padding:5px 14px;color:#e2e8f0;">엔딩1</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="background:#1a1a2e;border:1px solid #4f46e5;border-radius:6px;padding:5px 14px;color:#e2e8f0;">B루트</div>
+              <div style="width:1px;height:14px;background:#555;"></div>
+              <div style="background:#1a1a2e;border:1px solid #059669;border-radius:6px;padding:5px 14px;color:#e2e8f0;">엔딩2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>혼합형 — 자동 정렬 + 수동 조정</h3>
+      <p style="margin-bottom:12px">기본은 트리로 자동 정렬. 원하면 노드를 직접 움직여서 위치 조정 가능.</p>
+      <div style="background:#0d0d0d;border:1px solid #333;border-radius:8px;padding:16px;position:relative;height:140px;font-size:12px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0;height:100%;">
+          <div style="background:#1a1a2e;border:1px solid #7c3aed;border-radius:6px;padding:5px 14px;color:#e2e8f0;margin-top:4px;">프롤로그</div>
+          <div style="width:1px;height:14px;background:#555;"></div>
+          <div style="display:flex;gap:28px;align-items:flex-start;">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="background:#1a1a2e;border:1px solid #4f46e5;border-radius:6px;padding:5px 14px;color:#e2e8f0;">A루트</div>
+              <div style="width:1px;height:14px;background:#555;"></div>
+              <div style="background:#1a1a2e;border:1px solid #059669;border-radius:6px;padding:5px 14px;color:#e2e8f0;">엔딩1</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;margin-top:28px;">
+              <!-- 수동으로 살짝 내려간 노드 -->
+              <div style="background:#1a1a2e;border:2px dashed #f59e0b;border-radius:6px;padding:5px 14px;color:#e2e8f0;position:relative;">
+                B루트
+                <span style="position:absolute;top:-8px;right:-8px;background:#f59e0b;border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#000;">✥</span>
+              </div>
+              <div style="width:1px;height:14px;background:#555;"></div>
+              <div style="background:#1a1a2e;border:1px solid #059669;border-radius:6px;padding:5px 14px;color:#e2e8f0;">엔딩2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:#888;margin-top:8px;">✥ 표시된 노드는 수동으로 위치 조정됨</p>
+    </div>
+  </div>
+
+</div>

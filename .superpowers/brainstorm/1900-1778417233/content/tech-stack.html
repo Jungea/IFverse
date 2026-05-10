@@ -1,0 +1,84 @@
+<h2>기술 스택 옵션</h2>
+<p class="subtitle">Vue 경험 기반, 가볍고 무료로 운영 가능한 세 가지 방향</p>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Vue 3 + Supabase <span style="color:#7c3aed;font-size:12px;">★ 추천</span></h3>
+      <table style="width:100%;font-size:12px;border-collapse:collapse;margin:8px 0;">
+        <tr><td style="color:#888;padding:3px 0;width:80px;">프론트엔드</td><td style="color:#e2e8f0;">Vue 3 + Vite + Pinia</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">그래프</td><td style="color:#e2e8f0;">Vue Flow (Vue 전용 노드 에디터)</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">백엔드</td><td style="color:#e2e8f0;">Supabase (Auth + DB + Storage)</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">PWA</td><td style="color:#e2e8f0;">vite-plugin-pwa</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">배포</td><td style="color:#e2e8f0;">Vercel (무료)</td></tr>
+      </table>
+      <div class="pros-cons" style="font-size:12px;">
+        <div class="pros"><h4>장점</h4><ul>
+          <li>Vue 경험 바로 활용</li>
+          <li>별도 백엔드 서버 없음</li>
+          <li>Supabase 무료 플랜으로 충분</li>
+          <li>가장 빠르게 시작 가능</li>
+        </ul></div>
+        <div class="cons"><h4>단점</h4><ul>
+          <li>복잡한 서버 로직은<br>Supabase Edge Functions로 처리</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Nuxt 3 + Supabase</h3>
+      <table style="width:100%;font-size:12px;border-collapse:collapse;margin:8px 0;">
+        <tr><td style="color:#888;padding:3px 0;width:80px;">프레임워크</td><td style="color:#e2e8f0;">Nuxt 3 (Vue 기반 풀스택)</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">그래프</td><td style="color:#e2e8f0;">Vue Flow</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">백엔드</td><td style="color:#e2e8f0;">Nuxt Server Routes + Supabase</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">PWA</td><td style="color:#e2e8f0;">@vite-pwa/nuxt</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">배포</td><td style="color:#e2e8f0;">Vercel (무료)</td></tr>
+      </table>
+      <div class="pros-cons" style="font-size:12px;">
+        <div class="pros"><h4>장점</h4><ul>
+          <li>프론트+백 한 repo 관리</li>
+          <li>SSR/SEO 가능</li>
+          <li>서버 로직 작성 편함</li>
+        </ul></div>
+        <div class="cons"><h4>단점</h4><ul>
+          <li>A보다 약간 무거움</li>
+          <li>창작 툴에 SEO는 불필요</li>
+          <li>오버스펙 가능성</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Vue 3 + Hono(Node) + Supabase</h3>
+      <table style="width:100%;font-size:12px;border-collapse:collapse;margin:8px 0;">
+        <tr><td style="color:#888;padding:3px 0;width:80px;">프론트엔드</td><td style="color:#e2e8f0;">Vue 3 + Vite</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">그래프</td><td style="color:#e2e8f0;">Vue Flow</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">백엔드</td><td style="color:#e2e8f0;">Hono (경량 Node.js 서버)</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">DB/Auth</td><td style="color:#e2e8f0;">Supabase</td></tr>
+        <tr><td style="color:#888;padding:3px 0;">배포</td><td style="color:#e2e8f0;">Vercel + Railway (일부 유료)</td></tr>
+      </table>
+      <div class="pros-cons" style="font-size:12px;">
+        <div class="pros"><h4>장점</h4><ul>
+          <li>서버 로직 완전 제어</li>
+          <li>Java 경험자에게 친숙한 구조</li>
+        </ul></div>
+        <div class="cons"><h4>단점</h4><ul>
+          <li>백엔드 서버 별도 배포 필요</li>
+          <li>운영 비용 발생 가능</li>
+          <li>혼자 개발엔 부담</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p style="font-size:12px;color:#888;margin-top:16px;text-align:center;">Vue Flow: <a href="#" style="color:#7c3aed;">vueflow.dev</a> — Vue 3 전용 노드 기반 그래프 에디터 라이브러리</p>

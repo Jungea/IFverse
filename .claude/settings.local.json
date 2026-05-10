@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(npm test:*)",
+      "Bash(git -C /mnt/d/practice/IFverse status)",
+      "Bash(git -C /mnt/d/practice/IFverse log --oneline -5)",
+      "Bash(git -C /mnt/d/practice/IFverse add ifverse/)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

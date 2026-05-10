@@ -1,0 +1,146 @@
+<h2>UI 레이아웃 — 메인 에디터</h2>
+<p class="subtitle">IFverse 핵심 화면 구성</p>
+
+<div class="mockup" style="max-width:900px;margin:0 auto;">
+  <div class="mockup-header">IFverse — 프로젝트: "달빛 소나타"</div>
+  <div class="mockup-body" style="padding:0;overflow:hidden;">
+
+    <!-- Top Toolbar -->
+    <div style="background:#111;border-bottom:1px solid #222;padding:8px 12px;display:flex;align-items:center;gap:10px;">
+      <div style="background:#1a1a2e;border:1px solid #333;border-radius:5px;padding:4px 10px;font-size:11px;color:#888;">← 프로젝트 목록</div>
+      <div style="flex:1;text-align:center;font-size:12px;color:#e2e8f0;font-weight:600;">달빛 소나타</div>
+      <div style="display:flex;gap:6px;">
+        <div style="background:#7c3aed;border-radius:5px;padding:4px 10px;font-size:11px;color:#fff;">+ 노드 추가</div>
+        <div style="background:#1a1a2e;border:1px solid #333;border-radius:5px;padding:4px 10px;font-size:11px;color:#888;">자동 정렬</div>
+        <div style="background:#1a1a2e;border:1px solid #333;border-radius:5px;padding:4px 10px;font-size:11px;color:#888;">저장됨 ✓</div>
+      </div>
+    </div>
+
+    <!-- Main Layout: Canvas + Side Panel -->
+    <div style="display:flex;height:380px;">
+
+      <!-- Graph Canvas -->
+      <div style="flex:1;background:#0a0a0f;position:relative;overflow:hidden;">
+
+        <!-- Mini map -->
+        <div style="position:absolute;bottom:10px;right:10px;width:90px;height:60px;background:#111;border:1px solid #333;border-radius:4px;opacity:0.8;">
+          <div style="position:absolute;top:8px;left:20px;width:30px;height:8px;background:#7c3aed;border-radius:2px;opacity:0.5;"></div>
+          <div style="position:absolute;top:24px;left:8px;width:20px;height:8px;background:#4f46e5;border-radius:2px;opacity:0.5;"></div>
+          <div style="position:absolute;top:24px;left:35px;width:20px;height:8px;background:#4f46e5;border-radius:2px;opacity:0.5;"></div>
+          <div style="position:absolute;top:40px;left:15px;width:18px;height:8px;background:#059669;border-radius:2px;opacity:0.5;"></div>
+          <div style="position:absolute;top:40px;left:42px;width:18px;height:8px;background:#dc2626;border-radius:2px;opacity:0.5;"></div>
+        </div>
+
+        <!-- Zoom controls -->
+        <div style="position:absolute;bottom:10px;left:10px;display:flex;flex-direction:column;gap:4px;">
+          <div style="background:#1a1a2e;border:1px solid #333;border-radius:4px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#888;">+</div>
+          <div style="background:#1a1a2e;border:1px solid #333;border-radius:4px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#888;">−</div>
+        </div>
+
+        <!-- Nodes -->
+        <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;">
+          <!-- edges -->
+          <path d="M 200 95 C 200 130 120 140 120 170" stroke="#7c3aed" stroke-width="2" fill="none" opacity="0.6"/>
+          <path d="M 210 95 C 210 130 300 140 300 170" stroke="#7c3aed" stroke-width="2" fill="none" opacity="0.6"/>
+          <path d="M 120 210 C 120 240 80 250 80 270" stroke="#4f46e5" stroke-width="2" fill="none" opacity="0.6"/>
+          <path d="M 130 210 C 130 240 160 250 160 270" stroke="#4f46e5" stroke-width="2" fill="none" opacity="0.6"/>
+          <path d="M 300 210 C 300 240 320 250 320 270" stroke="#4f46e5" stroke-width="2" fill="none" opacity="0.6"/>
+          <!-- edge labels -->
+          <text x="148" y="138" font-size="9" fill="#888">선택A</text>
+          <text x="258" y="138" font-size="9" fill="#888">선택B</text>
+        </svg>
+
+        <!-- Node: 프롤로그 (scene) -->
+        <div style="position:absolute;top:55px;left:138px;background:#1a1a2e;border:2px solid #7c3aed;border-radius:8px;padding:8px 14px;min-width:100px;text-align:center;box-shadow:0 0 12px rgba(124,58,237,0.3);">
+          <div style="font-size:9px;color:#7c3aed;margin-bottom:2px;">SCENE</div>
+          <div style="font-size:12px;color:#e2e8f0;font-weight:600;">프롤로그</div>
+          <div style="font-size:10px;color:#666;margin-top:2px;">달빛이 스며드는 밤...</div>
+        </div>
+
+        <!-- Node: 루트A (branch) - selected -->
+        <div style="position:absolute;top:170px;left:62px;background:#1a1a2e;border:2px solid #4f46e5;border-radius:8px;padding:8px 14px;min-width:90px;text-align:center;box-shadow:0 0 16px rgba(79,70,229,0.5);outline:2px solid #4f46e5;outline-offset:3px;">
+          <div style="font-size:9px;color:#4f46e5;margin-bottom:2px;">BRANCH</div>
+          <div style="font-size:12px;color:#e2e8f0;font-weight:600;">기억을 따라가다</div>
+        </div>
+
+        <!-- Node: 루트B (scene) -->
+        <div style="position:absolute;top:170px;left:238px;background:#1a1a2e;border:2px solid #4f46e5;border-radius:8px;padding:8px 14px;min-width:90px;text-align:center;">
+          <div style="font-size:9px;color:#4f46e5;margin-bottom:2px;">SCENE</div>
+          <div style="font-size:12px;color:#e2e8f0;font-weight:600;">망각을 선택하다</div>
+        </div>
+
+        <!-- Node: 엔딩1 (ending) -->
+        <div style="position:absolute;top:270px;left:35px;background:#0d2018;border:2px solid #059669;border-radius:8px;padding:8px 14px;min-width:80px;text-align:center;">
+          <div style="font-size:9px;color:#059669;margin-bottom:2px;">ENDING</div>
+          <div style="font-size:12px;color:#e2e8f0;font-weight:600;">진실의 엔딩</div>
+        </div>
+
+        <!-- Node: 엔딩2 -->
+        <div style="position:absolute;top:270px;left:120px;background:#0d2018;border:2px solid #059669;border-radius:8px;padding:8px 14px;min-width:80px;text-align:center;">
+          <div style="font-size:9px;color:#059669;margin-bottom:2px;">ENDING</div>
+          <div style="font-size:12px;color:#e2e8f0;font-weight:600;">해피 엔딩</div>
+        </div>
+
+        <!-- Node: 엔딩3 -->
+        <div style="position:absolute;top:270px;left:268px;background:#1a0d0d;border:2px solid #dc2626;border-radius:8px;padding:8px 14px;min-width:80px;text-align:center;">
+          <div style="font-size:9px;color:#dc2626;margin-bottom:2px;">ENDING</div>
+          <div style="font-size:12px;color:#e2e8f0;font-weight:600;">배드 엔딩</div>
+        </div>
+
+      </div>
+
+      <!-- Right Side Panel (노드 클릭 시 열림) -->
+      <div style="width:240px;background:#0f0f18;border-left:1px solid #222;display:flex;flex-direction:column;">
+
+        <!-- Panel Header -->
+        <div style="padding:10px 12px;border-bottom:1px solid #222;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-size:11px;color:#4f46e5;font-weight:600;">BRANCH</div>
+            <div style="font-size:10px;color:#555;">✕</div>
+          </div>
+          <div style="font-size:13px;color:#e2e8f0;font-weight:600;margin-top:4px;">기억을 따라가다</div>
+        </div>
+
+        <!-- Tiptap editor area -->
+        <div style="flex:1;padding:12px;overflow-y:auto;">
+          <div style="font-size:10px;color:#555;margin-bottom:6px;">노드 내용</div>
+          <div style="background:#0a0a14;border:1px solid #222;border-radius:6px;padding:10px;font-size:11px;color:#aaa;line-height:1.6;min-height:80px;">
+            그는 오래된 사진첩을 펼쳤다. 빛바랜 사진 속 얼굴들이 낯설게 느껴졌다.<br><br>
+            <span style="color:#555;">계속 작성...</span>
+          </div>
+
+          <!-- Tiptap toolbar -->
+          <div style="display:flex;gap:4px;margin-top:6px;">
+            <div style="background:#1a1a2e;border:1px solid #333;border-radius:3px;padding:2px 6px;font-size:10px;color:#888;font-weight:700;">B</div>
+            <div style="background:#1a1a2e;border:1px solid #333;border-radius:3px;padding:2px 6px;font-size:10px;color:#888;font-style:italic;">I</div>
+            <div style="background:#1a1a2e;border:1px solid #333;border-radius:3px;padding:2px 6px;font-size:10px;color:#888;">H1</div>
+            <div style="background:#1a1a2e;border:1px solid #333;border-radius:3px;padding:2px 6px;font-size:10px;color:#888;">≡</div>
+          </div>
+
+          <!-- Outgoing edges -->
+          <div style="margin-top:14px;">
+            <div style="font-size:10px;color:#555;margin-bottom:6px;">나가는 선택지</div>
+            <div style="background:#0a0a14;border:1px solid #333;border-radius:5px;padding:6px 8px;font-size:11px;color:#aaa;margin-bottom:4px;">→ 진실의 엔딩 <span style="color:#555;font-size:10px;">| "기억을 직면하다"</span></div>
+            <div style="background:#0a0a14;border:1px solid #333;border-radius:5px;padding:6px 8px;font-size:11px;color:#aaa;">→ 해피 엔딩 <span style="color:#555;font-size:10px;">| "도망치다"</span></div>
+          </div>
+        </div>
+
+        <!-- Node type selector -->
+        <div style="padding:10px 12px;border-top:1px solid #222;display:flex;gap:4px;">
+          <div style="flex:1;background:#1a1a2e;border:1px solid #555;border-radius:4px;padding:4px;text-align:center;font-size:10px;color:#888;">SCENE</div>
+          <div style="flex:1;background:#4f46e5;border-radius:4px;padding:4px;text-align:center;font-size:10px;color:#fff;font-weight:600;">BRANCH</div>
+          <div style="flex:1;background:#1a1a2e;border:1px solid #555;border-radius:4px;padding:4px;text-align:center;font-size:10px;color:#888;">ENDING</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div style="margin-top:16px;display:flex;gap:16px;justify-content:center;font-size:12px;">
+  <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#7c3aed;margin-right:4px;"></span>SCENE — 일반 장면</span>
+  <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#4f46e5;margin-right:4px;"></span>BRANCH — 분기점</span>
+  <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#059669;margin-right:4px;"></span>ENDING — 해피</span>
+  <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#dc2626;margin-right:4px;"></span>ENDING — 배드</span>
+</div>
