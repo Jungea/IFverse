@@ -23,4 +23,8 @@ describe('getNodeColor', () => {
   it('타입 기본값 — ending', () => {
     expect(getNodeColor({ data: { nodeType: 'ending', color: null, routeId: null } }, routes)).toBe('#059669')
   })
+
+  it('알 수 없는 타입은 scene 기본값', () => {
+    expect(getNodeColor({ data: { nodeType: 'unknown', color: null, routeId: null } }, routes)).toBe('#4f46e5')
+  })
 })

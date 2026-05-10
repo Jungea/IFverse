@@ -4,7 +4,7 @@ import { useEditorStore } from '../../../stores/editorStore'
 const TYPE_DEFAULTS = { scene: '#4f46e5', branch: '#7c3aed', ending: '#059669' }
 
 export function getNodeColor(node, routes) {
-  if (node.data.color) return node.data.color
+  if (node.data.color != null) return node.data.color
   if (node.data.routeId) {
     const route = routes.find((r) => r.id === node.data.routeId)
     if (route) return route.color
@@ -33,7 +33,7 @@ export default function StoryNode({ id, data, selected }) {
     >
       <Handle type="target" position={Position.Top} style={{ background: color, width: 8, height: 8 }} />
       <div style={{ fontSize: '9px', color, fontWeight: '700', marginBottom: '4px', letterSpacing: '0.05em' }}>
-        {data.nodeType.toUpperCase()}
+        {(data.nodeType ?? 'scene').toUpperCase()}
       </div>
       <div style={{ fontSize: '13px', color: '#e2e8f0', fontWeight: '600', lineHeight: 1.3 }}>
         {data.title}
