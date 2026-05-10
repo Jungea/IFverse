@@ -60,4 +60,28 @@ describe('editorStore', () => {
     useEditorStore.getState().updateEdgeLabel('e1', '선택지 A')
     expect(useEditorStore.getState().edges[0].data.label).toBe('선택지 A')
   })
+
+  it('deleteNode — selectedNodeId가 삭제된 노드이면 null로', () => {
+    useEditorStore.setState({ nodes: [makeNode('n1')], edges: [], selectedNodeId: 'n1' })
+    useEditorStore.getState().deleteNode('n1')
+    expect(useEditorStore.getState().selectedNodeId).toBeNull()
+  })
+
+  it('loadGraph — selectedNodeId와 saveStatus 초기화', () => {
+    useEditorStore.setState({ selectedNodeId: 'n1', saveStatus: 'saving' })
+    useEditorStore.getState().loadGraph({ projectId: 'p1', nodes: [], edges: [], routes: [] })
+    const state = useEditorStore.getState()
+    expect(state.selectedNodeId).toBeNull()
+    expect(state.saveStatus).toBe('saved')
+    expect(state.projectId).toBe('p1')
+  })
+
+  it('onConnect — labeledEdge 타입과 빈 라벨로 엣지 추가', () => {
+    useEditorStore.setState({ edges: [] })
+    useEditorStore.getState().onConnect({ source: 'n1', target: 'n2' })
+    const { edges } = useEditorStore.getState()
+    expect(edges).toHaveLength(1)
+    expect(edges[0].type).toBe('labeledEdge')
+    expect(edges[0].data.label).toBe('')
+  })
 })
