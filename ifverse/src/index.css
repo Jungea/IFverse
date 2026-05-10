@@ -1,0 +1,6 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: #0a0a0f; color: #e2e8f0; }
+.ProseMirror { outline: none; }
+.ProseMirror p { margin: 0 0 0.5em; }
+.ProseMirror h2 { font-size: 1.1rem; margin: 0.5em 0 0.25em; }
+.ProseMirror ul { padding-left: 1.25em; }
