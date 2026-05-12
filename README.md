@@ -75,13 +75,6 @@ Supabase
 - **인증/DB**: Supabase
 - **PWA**: vite-plugin-pwa
 
-## 배포 (Vercel)
+## 배포
 
-```bash
-npm install -g vercel
-vercel --prod
-```
-
-Vercel 대시보드 → Settings → Environment Variables 에서 아래 두 값 추가:
-- `VITE_SUPABASE_URL`
-- `VITE_SUPABASE_ANON_KEY`
+[DEPLOYMENT.md](./DEPLOYMENT.md) 참고.
