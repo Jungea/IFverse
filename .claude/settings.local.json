@@ -10,7 +10,10 @@
       "Bash(git -C /mnt/d/practice/IFverse status)",
       "Bash(git -C /mnt/d/practice/IFverse log --oneline -5)",
       "Bash(git -C /mnt/d/practice/IFverse add ifverse/)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git:*)",
+      "Bash(npx vitest:*)",
+      "Bash(python3:*)"
     ]
   }
 }
