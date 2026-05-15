@@ -1,3 +1,7 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # IFverse
 
 스토리 작가를 위한 분기/세계선 관리 PWA. 노드 그래프로 스토리 분기를 시각화하고 관리한다.
@@ -6,8 +10,10 @@
 
 ```bash
 npm run dev       # 개발 서버
+npm run lint      # ESLint 검사
 npm test          # 테스트 (watch)
 npm test -- --run # 테스트 1회 실행
+npm test -- tests/stores/editorStore.test.js --run  # 파일 단위 테스트
 npm run build     # 프로덕션 빌드
 npm run preview   # 빌드 결과 미리보기
 ```
@@ -19,48 +25,16 @@ React SPA가 Supabase JS SDK로 직접 통신. 별도 백엔드 없음.
 - **상태 관리**: Zustand v5 — `authStore`, `projectStore`, `editorStore`
 - **그래프 에디터**: @xyflow/react (React Flow)
 - **리치 텍스트**: @tiptap/react + @tiptap/starter-kit
-- **라우팅**: react-router-dom v6
+- **라우팅**: react-router-dom v7
 - **자동 레이아웃**: dagre (TB 방향)
 - **인증/DB**: Supabase (Auth + PostgreSQL + RLS)
 - **PWA**: vite-plugin-pwa
 
-## 파일 구조
+## 테스트
 
-```
-src/
-├── lib/
-│   ├── supabase.js          # Supabase 클라이언트 싱글톤
-│   └── autoLayout.js        # dagre 자동 레이아웃 순수 함수
-├── stores/
-│   ├── authStore.js         # 유저 인증 상태
-│   ├── projectStore.js      # 프로젝트 목록 CRUD
-│   └── editorStore.js       # 노드/엣지/루트 에디터 상태
-├── hooks/
-│   └── useAutoSave.js       # 디바운스 자동저장 훅
-├── pages/
-│   ├── LandingPage.jsx      # / (로그인/회원가입)
-│   ├── DashboardPage.jsx    # /dashboard
-│   └── EditorPage.jsx       # /project/:id
-└── components/
-    ├── auth/
-    │   ├── AuthForm.jsx
-    │   └── ProtectedRoute.jsx
-    ├── dashboard/
-    │   ├── ProjectCard.jsx
-    │   └── NewProjectModal.jsx
-    └── editor/
-        ├── EditorToolbar.jsx
-        ├── GraphCanvas.jsx
-        ├── NodeSidebar.jsx
-        ├── RoutePanel.jsx
-        ├── nodes/StoryNode.jsx    # getNodeColor export 포함
-        └── edges/LabeledEdge.jsx
+Vitest + jsdom 환경. globals 활성화.
 
-tests/
-├── stores/                  # editorStore, authStore, projectStore
-├── hooks/                   # useAutoSave
-└── lib/                     # autoLayout, getNodeColor
-```
+Zustand 스토어는 `useXxxStore.setState()`로 상태를 직접 주입하고 `useXxxStore.getState()`로 결과를 검증한다. 각 테스트는 `beforeEach`에서 초기 상태로 리셋.
 
 ## 주요 규칙
 
@@ -74,9 +48,14 @@ tests/
 3. 타입 기본값: `scene: #4f46e5`, `branch: #7c3aed`, `ending: #059669`
 
 ### 저장 전략
+- `EditorPage`가 저장 로직을 소유, `useAutoSave`로 1500ms 디바운스
 - upsert 후 orphan 삭제 방식 (delete-then-insert 금지 — 데이터 유실 위험)
 - 저장 순서: routes → nodes → edges (FK 의존성)
 - 삭제 순서: edges → nodes → routes
+
+### GraphCanvas UX
+- 캔버스 더블클릭 → 클릭 위치에 노드 생성 (`storyNode` 타입, 기본 `scene`)
+- `Delete` 키 → React Flow 기본 동작으로 선택된 노드/엣지 삭제
 
 ### 환경 변수
 `.env.local` 필요:
